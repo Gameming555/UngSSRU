@@ -7,10 +7,56 @@ class Authen extends StatefulWidget {
 }
 
 class _AuthenState extends State<Authen> {
+  double mySize = 150.0;
+  Widget singInButton() {
+    return RaisedButton(
+      child: Text('sing In'),onPressed: (){},
+    );
+  }
+
+  Widget myButton() {
+    return Container(
+      width: 220.0,
+      child: Row(
+        children: <Widget>[singInButton(),singInButton()],
+      ),
+    );
+  }
+
+  Widget passwordText() {
+    return Container(
+      width: 220.0,
+      child: TextFormField(
+        obscureText: true,
+        decoration: InputDecoration(
+          labelText: 'password',
+          hintText: 'More 6 Character',
+        ),
+      ),
+    );
+  }
+
+  Widget emailText() {
+    return Container(
+      width: 220.0,
+      child: TextFormField(
+        keyboardType: TextInputType.emailAddress,
+        decoration: InputDecoration(
+          labelText: 'Email:',
+          hintText: 'you@gmail.com',
+        ),
+      ),
+    );
+  }
+
   Widget showlogo() {
-    return Image.asset(
-      'images/logo.png',
-      fit: BoxFit.contain,
+    return Container(
+      width: mySize,
+      height: mySize,
+      child: Image.asset(
+        'images/logo.png',
+        fit: BoxFit.contain,
+      ),
     );
   }
 
@@ -28,6 +74,9 @@ class _AuthenState extends State<Authen> {
           children: <Widget>[
             showlogo(),
             showText(),
+            emailText(),
+            passwordText(),
+             myButton(),
           ],
         ),
       ),
