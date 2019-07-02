@@ -8,18 +8,39 @@ class Authen extends StatefulWidget {
 
 class _AuthenState extends State<Authen> {
   double mySize = 150.0;
+
+  Widget mySizeBox() {
+    return SizedBox(
+      width: 8.0,
+    );
+  }
+
+  Widget singupButton() {
+    return RaisedButton(
+      color: Colors.green[900],
+      child: Text(
+        'sing up',
+        style: TextStyle(color: Colors.white),
+      ),
+      onPressed: () {},
+    );
+  }
+
   Widget singInButton() {
     return RaisedButton(
-      child: Text('sing In'),onPressed: (){},
+      child: Text('sing In'),
+      onPressed: () {},
     );
   }
 
   Widget myButton() {
     return Container(
       width: 220.0,
-      child: Row(
-        children: <Widget>[singInButton(),singInButton()],
-      ),
+      child: Row(children: <Widget>[
+        Expanded(child: singInButton()),
+        mySizeBox(),
+        Expanded(child: singupButton()),
+      ]),
     );
   }
 
@@ -61,13 +82,15 @@ class _AuthenState extends State<Authen> {
   }
 
   Widget showText() {
-    return Text('Authen');
+    return Text('gameming');
+    
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        decoration: BoxDecoration(gradient: LinearGradient(colors: [Colors.white,Colors.yellow])),
         padding: EdgeInsets.only(top: 60.0),
         alignment: Alignment.topCenter,
         child: Column(
@@ -76,7 +99,7 @@ class _AuthenState extends State<Authen> {
             showText(),
             emailText(),
             passwordText(),
-             myButton(),
+            myButton(),
           ],
         ),
       ),
