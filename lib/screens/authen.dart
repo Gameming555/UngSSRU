@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart' as prefix0;
+import 'package:ung_game55/screens/register.dart';
 
 class Authen extends StatefulWidget {
   @override
@@ -22,7 +23,14 @@ class _AuthenState extends State<Authen> {
         'sing up',
         style: TextStyle(color: Colors.white),
       ),
-      onPressed: () {},
+      onPressed: () {
+        print('you click SingUp');
+
+        //Create Route
+        var registerRoute = MaterialPageRoute(builder: (BuildContext comtext) => Register());
+        Navigator.of(context).push(registerRoute);
+
+      },
     );
   }
 
@@ -83,6 +91,7 @@ class _AuthenState extends State<Authen> {
 
   Widget showText() {
     return Text('gameming');
+    
     
   }
 
